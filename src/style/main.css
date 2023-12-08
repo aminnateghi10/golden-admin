@@ -1,0 +1,58 @@
+/* main custom css file added by tohid nateghi */
+
+.custom-control-success
+    .custom-control-input:checked
+    ~ .custom-control-label::before {
+    background-color: #82b54b;
+}
+
+.custom-control-success
+    .custom-control-input:checked:disabled
+    ~ .custom-control-label::before {
+    background-color: #9ccc65;
+}
+
+.custom-control-info
+    .custom-control-input:checked
+    ~ .custom-control-label::before {
+    background-color: #3c90df;
+}
+
+.custom-control-info
+    .custom-control-input:checked:disabled
+    ~ .custom-control-label::before {
+    background-color: #26c6da;
+}
+
+.custom-control-warning
+    .custom-control-input:checked
+    ~ .custom-control-label::before {
+    background-color: #ffb119;
+}
+
+.custom-control-warning
+    .custom-control-input:checked:disabled
+    ~ .custom-control-label::before {
+    background-color: #ffca28;
+}
+
+.custom-control-danger
+    .custom-control-input:checked
+    ~ .custom-control-label::before {
+    background-color: #e04f1a;
+}
+
+.custom-control-danger
+    .custom-control-input:checked:disabled
+    ~ .custom-control-label::before {
+    background-color: #ef5350;
+}
+
+.ltr {
+    direction: ltr;
+}
+
+.contact-photo {
+    border-radius: 50%;
+    height: 50px;
+}

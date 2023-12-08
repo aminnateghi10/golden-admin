@@ -1,0 +1,181 @@
+/* Set Text Direction to RTL */
+
+html {
+    direction: rtl;
+    text-align: right;
+}
+
+body {
+    text-align: right;
+}
+
+/* Set Font to Vazir */
+
+@font-face {
+    font-family: Vazir;
+    src: url("./fonts/vazir-font/Vazir-Light-FD-WOL.eot");
+    src: url("./fonts/vazir-font/Vazir-Light-FD-WOL.eot")
+            format("embedded-opentype"),
+        url("./fonts/vazir-font/Vazir-Light-FD-WOL.woff2") format("woff2"),
+        url("./fonts/vazir-font/Vazir-Light-FD-WOL.woff") format("woff"),
+        url("./fonts/vazir-font/Vazir-Light-FD-WOL.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Vazir;
+    src: url("./fonts/vazir-font/Vazir-Bold-FD-WOL.eot");
+    src: url("./fonts/vazir-font/Vazir-Bold-FD-WOL.eot")
+            format("embedded-opentype"),
+        url("./fonts/vazir-font/Vazir-Bold-FD-WOL.woff2") format("woff2"),
+        url("./fonts/vazir-font/Vazir-Bold-FD-WOL.woff") format("woff"),
+        url("./fonts/vazir-font/Vazir-Bold-FD-WOL.ttf") format("truetype");
+    font-weight: bold;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Vazir;
+    src: url("fonts/vazir-font/Vazir-Thin-FD-WOL.eot");
+    src: url("./fonts/vazir-font/Vazir-Thin-FD-WOL.eot")
+            format("embedded-opentype"),
+        url("./fonts/vazir-font/Vazir-Thin-FD-WOL.woff2") format("woff2"),
+        url("./fonts/vazir-font/Vazir-Thin-FD-WOL.woff") format("woff"),
+        url("./fonts/vazir-font/Vazir-Thin-FD-WOL.ttf") format("truetype");
+}
+
+body,
+.datepicker-plot-area {
+    font-family: "Vazir", sans-serif !important;
+}
+
+/* Sidebar Mini */
+
+@media (min-width: 992px) {
+    .sidebar-o.sidebar-mini #sidebar .sidebar-content {
+        -webkit-transform: translateX(0) translateY(0) translateZ(0);
+        transform: translateX(0) translateY(0) translateZ(0);
+    }
+    .sidebar-r.sidebar-o.sidebar-mini #sidebar .sidebar-content {
+        -webkit-transform: translateX(-166px) translateY(0) translateZ(0);
+        transform: translateX(-166px) translateY(0) translateZ(0);
+    }
+    .sidebar-r.sidebar-o.sidebar-mini #sidebar:hover .sidebar-content {
+        -webkit-transform: translateX(0) translateY(0) translateZ(0);
+        transform: translateX(0) translateY(0) translateZ(0);
+    }
+}
+
+/* Main Sidebar Navigation */
+
+.nav-main a {
+    padding-right: 40px;
+    padding-left: 18px;
+}
+
+.nav-main a > i {
+    right: 19px;
+    left: auto;
+}
+
+.nav-main a.nav-submenu {
+    padding-right: 40px;
+    padding-left: 35px;
+}
+
+.nav-main a.nav-submenu::before,
+.nav-main a.nav-submenu::after {
+    right: auto;
+    left: 15px;
+}
+
+.nav-main a.nav-submenu::before {
+    content: "\f105";
+}
+
+.nav-main a.nav-submenu::after {
+    -webkit-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.nav-main ul {
+    padding-right: 40px;
+    padding-left: 0;
+}
+
+.nav-main ul a,
+.nav-main ul a.nav-submenu {
+    padding-right: 0;
+    padding-left: 8px;
+}
+
+.nav-main ul a > i {
+    margin-right: 0;
+    margin-left: 15px;
+}
+
+.nav-main ul ul {
+    padding-right: 12px;
+}
+
+/* Main Header Navigation */
+
+@media (min-width: 992px) {
+    .nav-main-header a > i {
+        margin-right: 0;
+        margin-left: 8px;
+    }
+    .nav-main-header a.nav-submenu {
+        padding-right: 14px;
+        padding-left: 28px;
+    }
+    .nav-main-header a.nav-submenu::before {
+        right: auto;
+        left: 6px;
+    }
+    .nav-main-header ul {
+        right: 0;
+        left: auto;
+    }
+    .nav-main-header ul a.nav-submenu::before {
+        content: "\f104";
+    }
+    .nav-main-header ul ul {
+        right: 100%;
+        left: auto;
+    }
+    .nav-main-header > li:last-child ul {
+        right: auto;
+        left: 0;
+    }
+    .nav-main-header > li:last-child ul a.nav-submenu::before {
+        content: "\f105";
+    }
+    .nav-main-header > li:last-child ul ul {
+        right: auto;
+        left: 100%;
+    }
+}
+
+.dd-list .dd-list {
+    padding-left: unset !important;
+    padding-right: 30px !important;
+}
+
+.cke_reset_all,
+.cke_reset_all *,
+.cke_reset_all a,
+.cke_reset_all textarea {
+    font-family: Vazir !important;
+}
+
+.modal-header .close {
+    padding: 24px;
+    margin: -24px auto -24px -24px;
+}
+
+.autocomplete-suggestion {
+    text-align: right;
+}
