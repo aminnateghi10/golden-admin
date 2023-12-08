@@ -5,7 +5,7 @@ const {REACT_APP_API_URL} = process.env;
 const callApi = () => {
     const cookies = new Cookies();
     const axiosInstance = axios.create({
-        baseURL: "http://192.168.1.107:8000/api/v1/",
+        baseURL: "https://api-amin.t-nateghi.ir/api/v1/",
         headers: {'Authorization': cookies.get('token')}
     })
     axiosInstance.interceptors.request.use(
