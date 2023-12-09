@@ -23,8 +23,11 @@ const ListCosts = () => {
                 {/* Row #3 */}
                 <div className="col-md-12">
                     <div className="block block-rounded block-bordered">
-                        <div className="block-header block-header-default border-b">
-                            <h3 className="block-title">لیست هزینه ها</h3>
+                        <div className="block-header block-header-default border-b justify-content-between">
+                            <h3 className="block-title">لیست کاربران</h3>
+                            <div>
+                                <input className="px-1" placeholder="جستجوی کاربر"/>
+                            </div>
                         </div>
                         <div className="block-content">
                             <div className="table-responsive">
@@ -33,11 +36,9 @@ const ListCosts = () => {
                                     <tr>
                                         <th/>
                                         <th>#</th>
-                                        <th>عنوان هزینه</th>
-                                        <th className="text-center">مبلغ</th>
-                                        <th>هزینه کننده</th>
+                                        <th>نام کاربر</th>
+                                        <th>مدیر اضافه کننده</th>
                                         <th>تاریخ</th>
-                                        <th className="text-center">سهم شما (تومان)</th>
                                         <th className="text-center">عملیات</th>
                                     </tr>
                                     </thead>
@@ -54,7 +55,7 @@ const ListCosts = () => {
                                 <ul className="pagination">
                                     <li className="page-item disabled" aria-disabled="true" aria-label="« قبلی">
                                         <Link className="page-link" to={{
-                                            pathname: `/costs`,
+                                            pathname: `/`,
                                             search: costs?.links?.prev ? Cutting(costs?.links?.prev, 'page=') : ''
                                         }} rel="next" aria-label="بعدی »">‹</Link>
                                     </li>
@@ -64,7 +65,7 @@ const ListCosts = () => {
                                                     <li className={`page-item ${item.active ? 'active' : ''}`}
                                                         key={index}>
                                                         <NavLink to={{
-                                                            pathname: `/costs`,
+                                                            pathname: `/`,
                                                             search: item.url ? Cutting(item.url, '?') : ''
                                                         }} className="page-link">{item.label}</NavLink>
                                                     </li>
@@ -73,7 +74,7 @@ const ListCosts = () => {
                                     }
                                     <li className="page-item">
                                         <Link className="page-link" to={{
-                                            pathname: `/costs`,
+                                            pathname: `/`,
                                             search: costs?.links?.next ? Cutting(costs?.links?.next, 'page=') : ''
                                         }}>›</Link>
                                     </li>

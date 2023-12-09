@@ -11,7 +11,7 @@ const CreateCosts = () => {
             <div className="col-md-6 offset-md-3">
                 <div className="block">
                     <div className="block-header block-header-default">
-                        <h3 className="block-title">ثبت هزینه جدید</h3>
+                        <h3 className="block-title">افزودن کاربر جدید</h3>
                     </div>
                     <div className="block-content">
                         <div className="row">

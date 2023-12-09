@@ -8,19 +8,19 @@ interface PropsInterface {
 const Sidebar = ({ sidebarShow }: PropsInterface) => {
   const sideNavigation = [
     // {href:'/' , icon:'si si-cup',label:'داشبورد'},
-    { href: "/create-costs", icon: "si si-plus", label: "ثبت هزینه" },
-    { href: "/", icon: "si si-list", label: "لیست هزینه ها" },
+    { href: "/", icon: "si si-list", label: "لیست کاربران" },
+    { href: "/create-costs", icon: "si si-plus", label: "افزودن کاربر" },
     {
       href: "/create-payments",
       icon: "si si-credit-card",
       label: "ثبت پرداختی",
     },
     { href: "/payments", icon: "si si-book-open", label: "لیست پرداختی" },
-    { href: "/users", icon: "si si-users", label: "لیست کاربران" },
+    { href: "/users", icon: "si si-users", label: "لیست مدیران" },
     {
       href: "/add-user",
       icon: "si si-user-follow",
-      label: "افزودن کاربر جدید",
+      label: "افزودن مدیر",
     },
   ];
 
@@ -51,7 +51,7 @@ const Sidebar = ({ sidebarShow }: PropsInterface) => {
                 <div className="content-header-item">
                   <Link className="link-effect font-w700" to="/">
                     <span className="text-dual-primary-dark">
-                      مدیریت هزینه ها
+                      مدیریت کاربران
                     </span>
                   </Link>
                 </div>

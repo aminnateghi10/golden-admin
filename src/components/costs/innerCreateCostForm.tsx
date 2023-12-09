@@ -21,22 +21,7 @@ const InnerCreateCostForm = (formProps : FormikProps<any>) => {
             <input type="hidden" name="_token" />
             <div className="row">
                 <div className="form-group col-6">
-                    <Input name='title' label='عنوان' inputClassName='form-control js-autocomplete'/>
-                </div>
-                <div className="form-group col-6">
-                    <Input name='amount' type='number' label='مبلغ' inputClassName='form-control js-autocomplete'/>
-                    <small className="form-text text-success amount-helper">{formProps.values.amount ? `${moneyFormat(formProps.values.amount)}  تومان` : ''}</small>
-                </div>
-                <div className="form-group col-6">
-                    <label>خرج کننده</label>
-                    <Field className='form-control' component="select" name="user_id" >
-                        {
-                            usersList?.map(item=>(
-                                <option key={item.id} value={item.id}>{item.name}</option>
-                            ))
-                        }
-                    </Field>
-                    <ErrorMessage name='user_id'/>
+                    <Input name='title' label='نام کاربر' inputClassName='form-control js-autocomplete'/>
                 </div>
                 <div className="form-group col-6">
                     <label htmlFor="date">تاریخ</label>
@@ -54,24 +39,24 @@ const InnerCreateCostForm = (formProps : FormikProps<any>) => {
                     <ErrorMessage name='date'/>
                 </div>
                 <div className="form-group col-12">
-                    <label>کاربران</label>
-                    <Field multiple={true} className='form-control' component="select" name="users_id" >
+                    <label htmlFor="payer_user_id">آدرس دامین</label>
+                    <Field className='form-control' name="payer_user_id" as="select">
                         {
-                            usersList?.map(item=>(
-                                <option key={item.id}  value={item.id}>{item.name}</option>
+                            [{id:1,name:'amin.com'}]?.map(item => (
+                                <option key={item.id} value={item.id}>{item.name}</option>
                             ))
                         }
                     </Field>
-                    <ErrorMessage name='users_id'/>
+                    <ErrorMessage name='payer_user_id'/>
                 </div>
                 <div className="form-group col-12">
-                    <Input name='description' label='توضیحات' as='textarea' rows='5' inputClassName='form-control' />
+                    <Input name='description' label='آدرس کانفیگ' as='textarea' rows='5' inputClassName='form-control' />
                 </div>
             </div>
             <div className="form-group row">
                 <div className="col-12 text-center">
                     <button type="submit" className="btn btn-alt-success">
-                        <i className="fa fa-plus mr-5" /> ثبت هزینه
+                        <i className="fa fa-plus mr-5" /> افزودن
                     </button>
                 </div>
             </div>
