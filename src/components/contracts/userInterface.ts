@@ -1,8 +1,6 @@
 export interface UserInterface {
     id: number,
-    name: string,
-    username: string
-    created_at: string,
+    domain: string,
 };
 
 

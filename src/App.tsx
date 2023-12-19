@@ -13,6 +13,7 @@ import EditCost from "./pages/edit-cost";
 import Payment from "./pages/payments";
 import EditPayment from "./pages/edit-payment";
 import AddUser from "./pages/add-user";
+import CreateDomains from "./pages/create-domains";
 
 //layouts
 const UserPanelLayout = lazy(
@@ -27,7 +28,9 @@ const Costs = lazy(() => import("./pages/costs"));
 const Users = lazy(() => import("./pages/users"));
 const ChangePassword = lazy(() => import("./pages/change-password"));
 const CreateCosts = lazy(() => import("./pages/create-costs"));
+const Domains = lazy(() => import("./pages/domains"));
 const CreatePayments = lazy(() => import("./pages/create-payments"));
+const EditDomains = lazy(() => import("./pages/edit-domains"));
 
 const App = () => {
   return (
@@ -46,6 +49,9 @@ const App = () => {
                 <Route path="/change-password" element={<ChangePassword />} />
                 <Route path="/create-payments" element={<CreatePayments />} />
                 <Route path="/payments" element={<Payment />} />
+                <Route path="/create-domains" element={<CreateDomains />} />
+                <Route path="/domains" element={<Domains />} />
+                <Route path="/domains/:id" element={<EditDomains />} />
                 <Route path="/edit-payment" element={<EditPayment />} />
                 <Route path="/add-user" element={<AddUser />} />
                 <Route path="*" element={<>404</>} />

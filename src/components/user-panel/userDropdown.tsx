@@ -8,7 +8,7 @@ const UserDropdown = () => {
     const [show, setShow] = useState<boolean>(false)
     let logOutHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        callApi().get('/logOut').then(res => {
+        callApi().get('/logout').then(res => {
             logoutToken();
             navigator('/auth/login');
         })

@@ -21,10 +21,11 @@ const ItemCosts = ({data}: PropsInterface) => {
     const handleShow = () => setShow(true);
 
     let deleteHandler = async () => {
-        let res = await callApi().delete(`/costs/${data.id}`);
+        let res = await callApi().delete(`/configs/${data.id}`);
+
         try {
             dispatch(deleteCost(data.id))
-            callApi().get(`/costs${location.search}`).then(response => dispatch(setCosts(response.data.result)))
+            callApi().get(`/configs${location?.search}`).then(response => dispatch(setCosts(response.data.result)))
             toast.success(res.data.message.message, {
                 position: "bottom-right",
                 autoClose: 2000,
@@ -40,17 +41,32 @@ const ItemCosts = ({data}: PropsInterface) => {
         }
     }
 
+    const copyHandler = ()=>{
+        navigator.clipboard.writeText(data.url);
+        toast.success("کپی با موفقیت انجام شد.", {
+            position: "bottom-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    };
+
     return (
         <>
             <tr className="cost-row tr-border-color border">
                 <td>
                 </td>
                 <td>1</td>
-                <td>{data.title}</td>
+                <td>{data.name}</td>
                 <td className="text-nowrap">{data.user.name}</td>
-                <td className="text-nowrap">{data.created_at_jalali}</td>
+                <td className="text-nowrap">{data.created_at}</td>
+                <td className="text-nowrap">{data.token}</td>
                 <td className="text-center text-nowrap">
-                    <button onClick={handleShow} className="btn btn-alt-success cost-delete-btn ml-1">کپی آدرس کانفیگ</button>
+                    <button onClick={copyHandler} className="btn btn-alt-success cost-delete-btn ml-1">کپی آدرس کانفیگ</button>
                     <Link to={`/costs/${data.id}`} className="btn btn-alt-warning ml-1">ویرایش</Link>
                     <button onClick={handleShow} className="btn btn-alt-danger cost-delete-btn">حذف</button>
                 </td>

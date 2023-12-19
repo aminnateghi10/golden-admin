@@ -15,28 +15,44 @@ const InnerCreateCostForm = (formProps : FormikProps<any>) => {
         callApi().get('/domains').then(res => setDomainsList(res.data.result.data))
     },[])
     const [domainsList , setDomainsList] = useState<UserInterface[]>();
+    console.log(domainsList,'iiiiiii');
+    
 
     return (
         <Form id="cost-create-form">
             <input type="hidden" name="_token" />
             <div className="row">
                 <div className="form-group col-6">
-                    <Input name='name' label='نام کاربر' inputClassName='form-control js-autocomplete'/>
+                    <Input name='title' label='نام کاربر' inputClassName='form-control js-autocomplete'/>
                 </div>
                 <div className="form-group col-6">
-                    <label htmlFor="domain_id">آدرس دامین</label>
-                    <Field className='form-control' name="domain_id" as="select">
-                    <option value="">انتخاب کنید</option>
+                    <label htmlFor="date">تاریخ</label>
+                    <DatePicker
+                        containerClassName='d-block'
+                        inputClass="form-control"
+                        name='date'
+                        digits={dateFormat}
+                        onChange={(e :DateObject)=> formProps.setFieldValue('date',e.toString())}
+                        calendar={persian}
+                        format="YYYY-DD-MM"
+                        locale={persian_fa}
+                        calendarPosition="bottom-right"
+                    />
+                    <ErrorMessage name='date'/>
+                </div>
+                <div className="form-group col-12">
+                    <label htmlFor="payer_user_id">آدرس دامین</label>
+                    <Field className='form-control' name="payer_user_id" as="select">
                         {
                             domainsList?.map(item => (
-                                <option key={item.id} value={item.id}>{item.domain}</option>
+                                <option key={item.id} value={item.id}>{item.name}</option>
                             ))
                         }
                     </Field>
-                    <ErrorMessage name='domain_id'/>
+                    <ErrorMessage name='payer_user_id'/>
                 </div>
                 <div className="form-group col-12">
-                    <Input name='config' label='آدرس کانفیگ' as='textarea' rows='5' inputClassName='form-control' />
+                    <Input name='description' label='آدرس کانفیگ' as='textarea' rows='5' inputClassName='form-control' />
                 </div>
             </div>
             <div className="form-group row">
