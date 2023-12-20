@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.3624ed5a.css",
-    "main.js": "/static/js/main.2f3e99e6.js",
+    "main.js": "/static/js/main.f800aa64.js",
     "static/js/442.38380891.chunk.js": "/static/js/442.38380891.chunk.js",
     "static/js/10.2d43d458.chunk.js": "/static/js/10.2d43d458.chunk.js",
     "static/js/109.8efebbb0.chunk.js": "/static/js/109.8efebbb0.chunk.js",
@@ -40,7 +40,7 @@
     "static/media/Vazir-Light-FD-WOL.woff2": "/static/media/Vazir-Light-FD-WOL.b0aea21eac7c4aaa5961.woff2",
     "index.html": "/index.html",
     "main.3624ed5a.css.map": "/static/css/main.3624ed5a.css.map",
-    "main.2f3e99e6.js.map": "/static/js/main.2f3e99e6.js.map",
+    "main.f800aa64.js.map": "/static/js/main.f800aa64.js.map",
     "442.38380891.chunk.js.map": "/static/js/442.38380891.chunk.js.map",
     "10.2d43d458.chunk.js.map": "/static/js/10.2d43d458.chunk.js.map",
     "109.8efebbb0.chunk.js.map": "/static/js/109.8efebbb0.chunk.js.map",
@@ -58,6 +58,6 @@
   },
   "entrypoints": [
     "static/css/main.3624ed5a.css",
-    "static/js/main.2f3e99e6.js"
+    "static/js/main.f800aa64.js"
   ]
 }
