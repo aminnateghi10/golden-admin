@@ -9,11 +9,13 @@ const Pagination = ({data}) => {
                 <li className="page-item disabled" aria-disabled="true" aria-label="« قبلی">
                     <Link className="page-link" to={{
                         pathname: `/payments`,
+                        // @ts-ignore
                         search: data?.links?.prev ? Cutting(data?.links?.prev, 'page=') : ''
                     }} rel="next" aria-label="بعدی »">‹</Link>
                 </li>
                 {
                     data?.meta.links.map((item, index) => {
+                        // @ts-ignore
                             return index != 0 && index + 1 != data?.meta.links.length &&
                                 <li className={`page-item ${item.active ? 'active' : ''}`}
                                     key={index}>

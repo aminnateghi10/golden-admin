@@ -42,6 +42,7 @@ const ItemCosts = ({data}: PropsInterface) => {
     }
 
     const copyHandler = ()=>{
+        // @ts-ignore
         navigator.clipboard.writeText(data.url);
         toast.success("کپی با موفقیت انجام شد.", {
             position: "bottom-right",
@@ -61,9 +62,11 @@ const ItemCosts = ({data}: PropsInterface) => {
                 <td>
                 </td>
                 <td>1</td>
+                 {/*@ts-ignore*/}
                 <td>{data.name}</td>
                 <td className="text-nowrap">{data.user.name}</td>
                 <td className="text-nowrap">{data.created_at}</td>
+                {/*@ts-ignore*/}
                 <td className="text-nowrap">{data.token}</td>
                 <td className="text-center text-nowrap">
                     <button onClick={copyHandler} className="btn btn-alt-success cost-delete-btn ml-1">کپی آدرس کانفیگ</button>

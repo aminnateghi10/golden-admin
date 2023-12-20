@@ -7,7 +7,7 @@ const Create = () => {
     const navigate = useNavigate()
     const [domain , setDomain] = useState();
 
-    const createDomain = async(e)=>{
+    const createDomain = async(e:any)=>{
         e.preventDefault();
         try {
             let res =  await callApi().post('domains',{domain});
@@ -33,9 +33,9 @@ const Create = () => {
         <div className="row">
             <div className="form-group col-6">
                 <label>نام دامین</label>
-                <input value={domain} onChange={(e)=>setDomain(e.target.value)} name='title' className='form-control js-autocomplete'/>
+                <input value={domain} onChange={(e:any)=>setDomain(e.target.value)} name='title' className='form-control js-autocomplete'/>
             </div>
-        </div> 
+        </div>
         <div className="form-group row">
             <div className="col-12 text-center">
                 <button type="submit" className="btn btn-alt-success">

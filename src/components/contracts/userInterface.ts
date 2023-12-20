@@ -1,6 +1,8 @@
 export interface UserInterface {
     id: number,
     domain: string,
+    name:string,
+    url:string
 };
 
 
@@ -10,7 +12,8 @@ export interface UsersInterface {
     username: string,
     created_at: string,
     debt_formatted: string,
-    debt: string
+    debt: string,
+    url: string
 };
 
 export interface CostsInterface {

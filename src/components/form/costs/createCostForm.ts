@@ -17,6 +17,7 @@ let createCostFormValidationSchema = yup.object().shape({
 });
 
 const CreateCostForm = withFormik<CreateCostFormProps, CreateCostFormInterface>({
+    // @ts-ignore
     mapPropsToValues: props => ({
         name: '',
         domain_id: undefined,

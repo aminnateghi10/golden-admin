@@ -11,13 +11,13 @@ const Index = () => {
     useEffect(()=>{
         callApi().get(`/domains/${proms.id}`).then(res => setDomain(res.data.result.domain))
     },[])
-    
-    const editDomain = async(e)=>{
+
+    const editDomain = async(e:any)=>{
         e.preventDefault();
         let res = callApi().put(`/domains/${proms.id}`,{domain});
         navigate('/domains');
     }
-    
+
     return (
         <div className="content">
             <div className="row">
@@ -34,9 +34,9 @@ const Index = () => {
                                     <div className="row">
                                         <div className="form-group col-6">
                                             <label>نام دامین</label>
-                                            <input value={domain} onChange={(e)=>setDomain(e.target.value)} name='title' className='form-control js-autocomplete'/>
+                                            <input value={domain} onChange={(e:any)=>setDomain(e.target.value)} name='title' className='form-control js-autocomplete'/>
                                         </div>
-                                    </div> 
+                                    </div>
                                     <div className="form-group row">
                                         <div className="col-12 text-center">
                                             <button type="submit" className="btn btn-alt-success">

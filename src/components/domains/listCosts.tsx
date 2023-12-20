@@ -21,7 +21,9 @@ const ListCosts = () => {
     let deleteHandler = async (id : number) => {
         let res = await callApi().delete(`/domains/${id}`);
         try {
+            // @ts-ignore
             let newData = data.data.filter((item) => item.id !== id);
+            // @ts-ignore
             setData({...data,data:newData})
             toast.success(res.data.message.message, {
                 position: "bottom-right",
@@ -71,11 +73,14 @@ const ListCosts = () => {
                                     <li className="page-item disabled" aria-disabled="true" aria-label="« قبلی">
                                         <Link className="page-link" to={{
                                             pathname: `/domains`,
+                                            // @ts-ignore
                                             search: data?.links?.prev ? Cutting(data?.links?.prev, 'page=') : ''
                                         }} rel="next" aria-label="بعدی »">‹</Link>
                                     </li>
                                     {
+                                        // @ts-ignore
                                         data?.meta.links.map((item, index) => {
+                                            // @ts-ignore
                                                 return index != 0 && index + 1 != data?.meta.links.length &&
                                                     <li className={`page-item ${item.active ? 'active' : ''}`}
                                                         key={index}>
@@ -90,6 +95,7 @@ const ListCosts = () => {
                                     <li className="page-item">
                                         <Link className="page-link" to={{
                                             pathname: `/domains`,
+                                            // @ts-ignore
                                             search: data?.links?.next ? Cutting(data?.links?.next, 'page=') : ''
                                         }}>›</Link>
                                     </li>

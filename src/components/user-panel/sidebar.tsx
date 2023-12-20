@@ -72,6 +72,7 @@ const Sidebar = ({ sidebarShow }: PropsInterface) => {
             <div className="content-side content-side-full">
               <ul className="nav-main">
                 {sideNavigation?.map((item) => {
+                      // @ts-ignore
                   if (user.is_admin) {
                     return <li key={item.href}>
                       <NavLink to={item.href}>

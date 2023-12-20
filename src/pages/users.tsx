@@ -36,7 +36,9 @@ const Users = () => {
                                             <tr key={item.id} className="text-nowrap">
                                                 <td>{item.id}</td>
                                                 <td>{item.name}</td>
+                                                {/*@ts-ignore*/}
                                                 <td>{item.username}</td>
+                                                {/*@ts-ignore*/}
                                                 <td>{moment(new Date(item.created_at)).locale('fa').format('YYYY/M/D')}</td>
                                             </tr>
                                         ))
