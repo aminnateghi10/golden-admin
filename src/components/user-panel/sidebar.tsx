@@ -12,8 +12,8 @@ const Sidebar = ({ sidebarShow }: PropsInterface) => {
   const user = useSelector((store: RootState) => store.user.user)
   const sideNavigation = [
     // {href:'/' , icon:'si si-cup',label:'داشبورد'},
-    { href: "/", icon: "si si-list", label: "لیست کاربران", },
-    { href: "/create-costs", icon: "si si-plus", label: "افزودن کاربر" },
+    { href: "/", icon: "si si-users", label: "لیست کاربران", },
+    { href: "/create-costs", icon: "si si-user", label: "افزودن کاربر" },
     {
       href: "/create-payments",
       icon: "si si-credit-card",
@@ -21,15 +21,15 @@ const Sidebar = ({ sidebarShow }: PropsInterface) => {
       isAdmin: true
     },
     { href: "/payments", icon: "si si-book-open", label: "لیست پرداختی", isAdmin: true },
-    { href: "/create-domains", icon: "si si-book-open", label: "ثبت دامین", isAdmin: true },
-    { href: "/domains", icon: "si si-book-open", label: "لیست دامین ها", isAdmin: true },
-    { href: "/users", icon: "si si-users", label: "لیست مدیران", isAdmin: true },
+    { href: "/create-domains", icon: "si si-plus", label: "ثبت دامین", isAdmin: true },
+    { href: "/domains", icon: "si si-list", label: "لیست دامین ها", isAdmin: true },
     {
       href: "/add-user",
       icon: "si si-user-follow",
       label: "افزودن مدیر",
       isAdmin: true
     },
+    { href: "/users", icon: "si si-users", label: "لیست مدیران", isAdmin: true },
   ];
 
   return (
