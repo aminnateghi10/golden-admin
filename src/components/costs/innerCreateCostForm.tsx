@@ -21,7 +21,7 @@ const InnerCreateCostForm = (formProps : FormikProps<any>) => {
             <input type="hidden" name="_token" />
             <div className="row">
                 <div className="form-group col-6">
-                    <Input name='name' label='نام کاربر' inputClassName='form-control js-autocomplete'/>
+                    <Input name='name' label='نام کاربر' errorClassName="text-danger" inputClassName='form-control js-autocomplete'/>
                 </div>
                 <div className="form-group col-6">
                     <label htmlFor="domain_id">آدرس دامین</label>
@@ -33,10 +33,10 @@ const InnerCreateCostForm = (formProps : FormikProps<any>) => {
                             ))
                         }
                     </Field>
-                    <ErrorMessage name='domain_id'/>
+                    <span className='text-danger'><ErrorMessage name='domain_id'/></span>
                 </div>
                 <div className="form-group col-12">
-                    <Input name='config' label='آدرس کانفیگ' as='textarea' rows='5' inputClassName='form-control' />
+                    <Input name='config' label='آدرس کانفیگ' as='textarea' errorClassName="text-danger" rows='5' inputClassName='form-control' />
                 </div>
             </div>
             <div className="form-group row">

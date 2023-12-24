@@ -20,7 +20,7 @@ const Input: FC<InputProps> = ({name, label, type = 'text', inputClassName, labe
                 label ? <label htmlFor={name} className={labelClassName}>{label}</label> : null
             }
             <Field as={as} name={name} id={name} type={type} className={inputClassName} placeholder={placeholder} rows={rows}/>
-            <ErrorMessage className={errorClassName} name={name}/>
+            <span className={errorClassName}><ErrorMessage name={name}/></span>
         </>
     )
 }

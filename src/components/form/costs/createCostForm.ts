@@ -7,13 +7,13 @@ import CallApi from "../../../helpers/callApi";
 import {toast} from "react-toastify";
 
 interface CreateCostFormProps {
-    user?: UserInterface
+    user?: UserInterface,
 }
 
 let createCostFormValidationSchema = yup.object().shape({
-    name: yup.string().required(),
-    domain_id: yup.number().required(),
-    config: yup.string().required(),
+    name: yup.string().required('نام کاربری الزامی است.'),
+    domain_id: yup.number().required('آدرس دامین الزامی است.'),
+    config: yup.string().required('آدرس کانفیگ الزامی است.'),
 });
 
 const CreateCostForm = withFormik<CreateCostFormProps, CreateCostFormInterface>({
@@ -26,7 +26,7 @@ const CreateCostForm = withFormik<CreateCostFormProps, CreateCostFormInterface>(
     validationSchema: createCostFormValidationSchema,
     handleSubmit: async (values) => {
         let res = await CallApi().post('/configs', values)
-        toast.success(res.data.message, {
+        toast.success("با موفقیت اضافه شد.", {
             position: "bottom-right",
             autoClose: 5000,
             hideProgressBar: false,
