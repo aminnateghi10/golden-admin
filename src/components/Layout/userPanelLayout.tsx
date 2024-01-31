@@ -1,22 +1,48 @@
-import React, {useState} from "react";
-import {Outlet, Navigate  } from "react-router-dom"
-
-import PageLoader from "../user-panel/pageLoader";
-import Header from "../user-panel/header";
-import Sidebar from "../user-panel/sidebar";
-import Footer from "../user-panel/footer";
-import useAuth from "../../helpers/useAuth";
-import {setUser} from "../../store/user";
 import {useDispatch} from "react-redux";
+import {useEffect, useState} from "react";
+import {Outlet, Navigate, useLocation } from "react-router-dom"
+
+import {setUser} from "../../store/user";
+import Header from "../user-panel/header";
+import Footer from "../user-panel/footer";
+import Sidebar from "../user-panel/sidebar";
+import useAuth from "../../helpers/useAuth";
+import PageLoader from "../user-panel/pageLoader";
 
 const UserPanelLayout = () => {
-    const [show, setShow] = useState<boolean>(true)
+    const {pathname} = useLocation();
+    const dispatch = useDispatch();
+
+    const [widthWindow, setWidthWindow] = useState(0);
+    const [show, setShow] = useState<boolean>(true);
     const {user, error, loading} = useAuth('userPanel');
-    const dispatch= useDispatch();
+
+    useEffect(() => {
+        window.addEventListener('resize', updateWindowDimensions);
+        return () => window.removeEventListener('resize', updateWindowDimensions);
+    }, [])
+
+    useEffect(() => {
+        if (widthWindow > 992) {
+            setShow(true)
+        } else {
+            setShow(false)
+        }
+    }, [widthWindow])
+
+    useEffect(() => {
+        if (widthWindow > 992) {
+            setShow(true)
+        } else {
+            setShow(false)
+        }
+    }, [pathname])
+
+    const updateWindowDimensions = () => setWidthWindow(window.innerWidth);
 
     if (loading) return <PageLoader/>
-    if (error) return <Navigate to='/auth/login' />
-    if (user)dispatch(setUser(user?.data?.result))
+    if (error) return <Navigate to='/auth/login'/>
+    if (user) dispatch(setUser(user?.data?.result))
     if (user) return (
         <div>
             <div id="page-container"
