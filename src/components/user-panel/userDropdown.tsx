@@ -13,6 +13,8 @@ const UserDropdown = () => {
             navigator('/auth/login');
         })
     }
+
+
     return (
         <div className={`btn-group ${show ? 'show' : ''}`}>
             <button type="button" onClick={(e) => setShow(!show)} className="btn btn-rounded btn-dual-secondary"
@@ -21,7 +23,7 @@ const UserDropdown = () => {
             </button>
             <div className={`dropdown-menu text-right min-width-150 ${show ? 'show' : ''}`}
                  aria-labelledby="page-header-user-dropdown">
-                <Link to='/' className="dropdown-item"><i className="si si-user ml-5"/> پروفایل</Link>
+                <Link to='/' className="dropdown-item"><i className="si si-user ml-5"/>لیست کاربران</Link>
                 <Link to='change-password' className="dropdown-item"><i className="si si-pencil ml-5"/>تغییر گذرواژه</Link>
                 <div className="dropdown-divider"/>
                 <button onClick={logOutHandler} className="dropdown-item"><i className="si si-logout ml-5"/>خروج

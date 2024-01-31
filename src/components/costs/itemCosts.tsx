@@ -7,6 +7,8 @@ import {useDispatch} from "react-redux";
 import {deleteCost, setCosts} from "../../store/costs";
 import {Button, Modal} from "react-bootstrap";
 
+import jalaliMoment from 'jalali-moment'
+
 interface PropsInterface {
     data: CostsInterface
 }
@@ -14,6 +16,7 @@ interface PropsInterface {
 const ItemCosts = ({data}: PropsInterface) => {
     const dispatch = useDispatch()
     const location = useLocation()
+    let ی
 
     const [show, setShow] = useState<boolean>(false);
 
@@ -26,7 +29,7 @@ const ItemCosts = ({data}: PropsInterface) => {
         try {
             dispatch(deleteCost(data.id))
             callApi().get(`/configs${location?.search}`).then(response => dispatch(setCosts(response.data.result)))
-            toast.success(res.data.message.message, {
+            toast.success("حذف با موفقیت انجام شد", {
                 position: "bottom-right",
                 autoClose: 2000,
                 hideProgressBar: false,
@@ -61,11 +64,11 @@ const ItemCosts = ({data}: PropsInterface) => {
             <tr className="cost-row tr-border-color border">
                 <td>
                 </td>
-                <td>1</td>
+                <td>{data.id}</td>
                  {/*@ts-ignore*/}
                 <td>{data.name}</td>
                 <td className="text-nowrap">{data.user.name}</td>
-                <td className="text-nowrap">{data.created_at}</td>
+                <td className="text-nowrap">{ jalaliMoment(data.created_at).format('jYYYY/jM/jD')}</td>
                 {/*@ts-ignore*/}
                 <td className="text-nowrap">{data.token}</td>
                 <td className="text-center text-nowrap">
@@ -80,7 +83,7 @@ const ItemCosts = ({data}: PropsInterface) => {
                 <Modal.Header>
                     <Modal.Title>آیا مطمئن هستید؟</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>بعد از حذف هزینه دیگر قادر به بازیابی نخواهید بود!</Modal.Body>
+                <Modal.Body>بعد از حذف کاربر دیگر قادر به بازیابی نخواهید بود!</Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         انصراف

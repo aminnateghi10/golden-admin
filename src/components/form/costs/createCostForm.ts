@@ -8,6 +8,7 @@ import {toast} from "react-toastify";
 
 interface CreateCostFormProps {
     user?: UserInterface,
+    navigate:any
 }
 
 let createCostFormValidationSchema = yup.object().shape({
@@ -24,8 +25,9 @@ const CreateCostForm = withFormik<CreateCostFormProps, CreateCostFormInterface>(
         config: '',
     }),
     validationSchema: createCostFormValidationSchema,
-    handleSubmit: async (values) => {
-        let res = await CallApi().post('/configs', values)
+    handleSubmit: async (values, {props}) => {
+        let res = await CallApi().post('/configs', values);
+        // console.log(navigate)
         toast.success("با موفقیت اضافه شد.", {
             position: "bottom-right",
             autoClose: 5000,
@@ -36,6 +38,7 @@ const CreateCostForm = withFormik<CreateCostFormProps, CreateCostFormInterface>(
             progress: undefined,
             theme: "light",
         });
+        props.navigate('/');
     }
 })((formProps: FormikProps<any>) => InnerCreateCostForm(formProps))
 

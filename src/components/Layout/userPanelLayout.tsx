@@ -10,35 +10,29 @@ import useAuth from "../../helpers/useAuth";
 import PageLoader from "../user-panel/pageLoader";
 
 const UserPanelLayout = () => {
+
+    let innerWidth=window.innerWidth;
     const {pathname} = useLocation();
     const dispatch = useDispatch();
-
-    const [widthWindow, setWidthWindow] = useState(0);
-    const [show, setShow] = useState<boolean>(true);
+    const [show, setShow] = useState<boolean>(false);
     const {user, error, loading} = useAuth('userPanel');
 
-    useEffect(() => {
-        window.addEventListener('resize', updateWindowDimensions);
-        return () => window.removeEventListener('resize', updateWindowDimensions);
-    }, [])
 
     useEffect(() => {
-        if (widthWindow > 992) {
-            setShow(true)
-        } else {
+        if (innerWidth < 992) {
             setShow(false)
+        } else {
+            setShow(true)
         }
-    }, [widthWindow])
+    }, [innerWidth])
 
     useEffect(() => {
-        if (widthWindow > 992) {
-            setShow(true)
-        } else {
+        if (innerWidth < 992) {
             setShow(false)
+        } else {
+            setShow(true)
         }
     }, [pathname])
-
-    const updateWindowDimensions = () => setWidthWindow(window.innerWidth);
 
     if (loading) return <PageLoader/>
     if (error) return <Navigate to='/auth/login'/>

@@ -5,6 +5,7 @@ import {RootState} from "../store";
 import CreateCostForm from "../components/form/costs/createCostForm";
 
 const CreateCosts = () => {
+    const navigate = useNavigate();
     const  user = useSelector((store:RootState )=> store.user.user);
 
     return (
@@ -18,7 +19,7 @@ const CreateCosts = () => {
                     <div className="block-content">
                         <div className="row">
                             <div className="col-md-12">
-                                <CreateCostForm user={user}/>
+                                <CreateCostForm user={user} navigate={navigate}/>
                             </div>
                         </div>
                     </div>
