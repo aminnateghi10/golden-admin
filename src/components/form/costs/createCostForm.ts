@@ -26,19 +26,35 @@ const CreateCostForm = withFormik<CreateCostFormProps, CreateCostFormInterface>(
     }),
     validationSchema: createCostFormValidationSchema,
     handleSubmit: async (values, {props}) => {
-        let res = await CallApi().post('/configs', values);
-        // console.log(navigate)
-        toast.success("با موفقیت اضافه شد.", {
-            position: "bottom-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
-        props.navigate('/');
+        try {
+            let res = await CallApi().post('/configs', values);
+            toast.success(".با موفقیت اضافه شد", {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            props.navigate('/');
+        }catch ({data}){
+            // @ts-ignore
+            data?.errors?.name?.map((item) =>{
+                toast.success(item, {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            })
+        }
+
     }
 })((formProps: FormikProps<any>) => InnerCreateCostForm(formProps))
 

@@ -3,9 +3,10 @@ import {CostsInterface} from "../contracts/userInterface";
 import {Link, useLocation} from "react-router-dom";
 import callApi from "../../helpers/callApi";
 import {toast} from "react-toastify";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {deleteCost, setCosts} from "../../store/costs";
 import {Button, Modal} from "react-bootstrap";
+import {RootState} from "../../store";
 
 interface PropsInterface {
     data: {
@@ -17,8 +18,6 @@ interface PropsInterface {
 }
 
 const ItemCosts = ({data , deleteHandler,index}: PropsInterface) => {
-    const dispatch = useDispatch()
-    const location = useLocation()
 
     const [show, setShow] = useState<boolean>(false);
 

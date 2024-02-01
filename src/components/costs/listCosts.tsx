@@ -15,13 +15,15 @@ const ListCosts = () => {
 
     const [search, setSearch] = useState('');
 
-    let costs = useSelector((state: RootState) => state.costs.costs)
+    const user = useSelector((store: RootState) => store.user.user);
+    let costs = useSelector((state: RootState) => state.costs.costs);
+
 
     useEffect(() => {
         const fetchDataAndDispatch = () => {
             callApi().get(`/configs${location?.search}`).then(res => dispatch(setCosts(res.data.result)));
         }
-        
+
         navigate(`/?query=${search}`);
         // Set up interval to fetch data every 500 seconds
         const intervalId = setTimeout(() => {
@@ -50,7 +52,7 @@ const ListCosts = () => {
                                             <th />
                                             <th>#</th>
                                             <th>نام کاربر</th>
-                                            <th>مدیر اضافه کننده</th>
+                                            {user?.is_admin && <th>مدیر اضافه کننده</th>}
                                             <th>تاریخ</th>
                                             <th>توکن</th>
                                             <th className="text-center">عملیات</th>

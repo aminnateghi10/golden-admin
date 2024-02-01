@@ -7,7 +7,7 @@ import callApi from "../helpers/callApi";
 const EditCost = () => {
     let proms = useParams();
     useEffect(()=>{
-        callApi().get(`/costs/${proms.id}`).then(res => setData(res.data.result))
+        callApi().get(`/configs/${proms.id}`).then(res => setData(res.data.result))
     },[])
     const [data , setData] = useState();
     return (

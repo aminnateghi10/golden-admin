@@ -1,10 +1,12 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {logoutToken} from "../../helpers/auth";
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useNavigate, useLocation} from "react-router-dom";
 import callApi from "../../helpers/callApi";
 
 const UserDropdown = () => {
     let navigator = useNavigate();
+    let location = useLocation();
+    console.log(location, 'ddddddaf')
     const [show, setShow] = useState<boolean>(false)
     let logOutHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
@@ -13,6 +15,10 @@ const UserDropdown = () => {
             navigator('/auth/login');
         })
     }
+
+    useEffect(() => {
+        setShow(false);
+    }, [location])
 
 
     return (
@@ -24,7 +30,8 @@ const UserDropdown = () => {
             <div className={`dropdown-menu text-right min-width-150 ${show ? 'show' : ''}`}
                  aria-labelledby="page-header-user-dropdown">
                 <Link to='/' className="dropdown-item"><i className="si si-user ml-5"/>لیست کاربران</Link>
-                <Link to='change-password' className="dropdown-item"><i className="si si-pencil ml-5"/>تغییر گذرواژه</Link>
+                <Link to='change-password' className="dropdown-item"><i className="si si-pencil ml-5"/>تغییر
+                    گذرواژه</Link>
                 <div className="dropdown-divider"/>
                 <button onClick={logOutHandler} className="dropdown-item"><i className="si si-logout ml-5"/>خروج
                 </button>

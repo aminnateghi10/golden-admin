@@ -11,27 +11,20 @@ interface EditCostFormProps {
 }
 
 let EditCostFormValidationSchema = yup.object().shape({
-    date:yup.string().required(),
-    amount:yup.number().required(),
-    title:yup.string().required(),
-    description:yup.string(),
-    user_id:yup.number().required(),
-    users_id:yup.array().required(),
+    name: yup.string().required('نام کاربری الزامی است.'),
+    domain_id: yup.number().required('آدرس دامین الزامی است.'),
+    config: yup.string().required('آدرس کانفیگ الزامی است.'),
 });
 
 const EditCostForm = withFormik<EditCostFormProps, CreateCostFormInterface>({
     mapPropsToValues: props => ({
-        date:props.data.created_at_jalali,
-        amount:+props.data.amount,
-        title:props.data.title,
-        description:props.data.description,
-        user_id:props.data.user.id,
-        users_id:props.data.users.map( item => item.id)
+        name: props.data?.name,
+        domain_id: props.data?.domain.domain,
+        config: props.data.config,
     }),
     validationSchema: EditCostFormValidationSchema,
     handleSubmit: async (values) => {
-        console.log(values)
-        let res = await CallApi().post('/costs',values)
+        let res = await CallApi().post('/configs',values)
         toast.success(res.data.message, {
             position: "bottom-right",
             autoClose: 5000,

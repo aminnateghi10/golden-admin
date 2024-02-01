@@ -9,7 +9,7 @@ interface PropsInterface {
 
 const Sidebar = ({ sidebarShow }: PropsInterface) => {
 
-  const user = useSelector((store: RootState) => store.user.user)
+  const user = useSelector((store: RootState) => store.user.user);
   const sideNavigation = [
     // {href:'/' , icon:'si si-cup',label:'داشبورد'},
     { href: "/", icon: "si si-users", label: "لیست کاربران", },
