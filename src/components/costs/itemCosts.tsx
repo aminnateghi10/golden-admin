@@ -68,6 +68,7 @@ const ItemCosts = ({data}: PropsInterface) => {
                 <td>{data.id}</td>
                 {/*@ts-ignore*/}
                 <td>{data.name}</td>
+                {/*@ts-ignore*/}
                 {user?.is_admin && <td className="text-nowrap">{data.user.name}</td>}
 
                 <td className="text-nowrap">{jalaliMoment(data.created_at).format('jYYYY/jM/jD')}</td>

@@ -17,9 +17,13 @@ let EditCostFormValidationSchema = yup.object().shape({
 });
 
 const EditCostForm = withFormik<EditCostFormProps, CreateCostFormInterface>({
+// @ts-ignore
     mapPropsToValues: props => ({
+        // @ts-ignore
         name: props.data?.name,
+        // @ts-ignore
         domain_id: props.data?.domain.domain,
+        // @ts-ignore
         config: props.data.config,
     }),
     validationSchema: EditCostFormValidationSchema,

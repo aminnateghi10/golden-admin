@@ -52,6 +52,7 @@ const ListCosts = () => {
                                             <th />
                                             <th>#</th>
                                             <th>نام کاربر</th>
+                                             {/*@ts-ignore*/}
                                             {user?.is_admin && <th>مدیر اضافه کننده</th>}
                                             <th>تاریخ</th>
                                             <th>توکن</th>
