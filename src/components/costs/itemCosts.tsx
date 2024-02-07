@@ -77,13 +77,11 @@ const ItemCosts = ({data}: PropsInterface) => {
                 <td className="text-center text-nowrap">
                     <button onClick={copyHandler} className="btn btn-alt-success cost-delete-btn ml-1">کپی آدرس کانفیگ
                     </button>
+                    <Link to={`/costs/${data.id}`} className="btn btn-alt-warning ml-1">ویرایش</Link>
                     {
                         // @ts-ignore
                         user?.is_admin &&
-                        <>
-                            <Link to={`/costs/${data.id}`} className="btn btn-alt-warning ml-1">ویرایش</Link>
                             <button onClick={handleShow} className="btn btn-alt-danger cost-delete-btn">حذف</button>
-                        </>
                     }
                 </td>
             </tr>

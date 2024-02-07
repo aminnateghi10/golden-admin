@@ -13,12 +13,12 @@ const InnerLoginForm = () => {
                 <div className="block-content">
                     <div className="form-group row">
                         <div className="col-12">
-                        <Input name='username' inputClassName='form-control' label='نام کاربری'/>
+                        <Input name='username' inputClassName='form-control' errorClassName="text-danger" label='نام کاربری'/>
                         </div>
                     </div>
                     <div className="form-group row">
                         <div className="col-12">
-                        <Input name='password' inputClassName='form-control' type='password' label='گذرواژه'/>
+                        <Input name='password' inputClassName='form-control' errorClassName="text-danger" type='password' label='گذرواژه'/>
                         </div>
                     </div>
                     <div className="form-group row mb-0">

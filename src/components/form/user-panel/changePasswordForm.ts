@@ -10,9 +10,9 @@ interface ChangePasswordFormProps {
 }
 
 let changePasswordFormValidationSchema = yup.object().shape({
-    prev_password: yup.string().required(),
-    password: yup.string().required(),
-    password_confirmation: yup.string().required().oneOf([yup.ref('password'), null], 'گذرواژه ها مطابقت ندارند'),
+    prev_password: yup.string().required('گذرواژه قبلی الزامی است.'),
+    password: yup.string().required('گذرواژه الزامی است.'),
+    password_confirmation: yup.string().required('تکرار گذرواژه الزامی است.').oneOf([yup.ref('password'), null], 'گذرواژه ها مطابقت ندارند'),
 });
 
 const ChangePasswordForm = withFormik<ChangePasswordFormProps, ChangePasswordFormInterface>({

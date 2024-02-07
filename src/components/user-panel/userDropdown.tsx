@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {logoutToken} from "../../helpers/auth";
 import {Link, useNavigate, useLocation} from "react-router-dom";
 import callApi from "../../helpers/callApi";
@@ -6,7 +6,8 @@ import callApi from "../../helpers/callApi";
 const UserDropdown = () => {
     let navigator = useNavigate();
     let location = useLocation();
-    console.log(location, 'ddddddaf')
+    const dropdownRef = useRef(null);
+
     const [show, setShow] = useState<boolean>(false)
     let logOutHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
@@ -18,11 +19,29 @@ const UserDropdown = () => {
 
     useEffect(() => {
         setShow(false);
-    }, [location])
+    }, [location]);
+
+    const handleOutsideClick = (e: MouseEvent) => {
+        // Check if the click is outside the dropdown
+        // @ts-ignore
+        if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+            setShow(false);
+        }
+    };
+
+    useEffect(() => {
+        // Attach the event listener when the component mounts
+        document.addEventListener("click", handleOutsideClick);
+
+        // Detach the event listener when the component is unmounted
+        return () => {
+            document.removeEventListener("click", handleOutsideClick);
+        };
+    }, []);
 
 
     return (
-        <div className={`btn-group ${show ? 'show' : ''}`}>
+        <div className={`btn-group ${show ? 'show' : ''}`} ref={dropdownRef}>
             <button type="button" onClick={(e) => setShow(!show)} className="btn btn-rounded btn-dual-secondary"
                     id="page-header-user-dropdown">
                 امین ناطقی<i className="fa fa-angle-down mr-5"/>

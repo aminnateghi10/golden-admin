@@ -5,9 +5,11 @@ import {toast} from "react-toastify";
 import {CostsInterface, CreateCostFormInterface} from "../../contracts/userInterface";
 import InnerEditCostForm from "../../costs/innerEditCostForm";
 import CallApi from "../../../helpers/callApi";
+import {NavigateFunction} from "react-router-dom";
 
 interface EditCostFormProps {
-    data : CostsInterface
+    data : CostsInterface,
+    navigate:NavigateFunction
 }
 
 let EditCostFormValidationSchema = yup.object().shape({
@@ -22,23 +24,28 @@ const EditCostForm = withFormik<EditCostFormProps, CreateCostFormInterface>({
         // @ts-ignore
         name: props.data?.name,
         // @ts-ignore
-        domain_id: props.data?.domain.domain,
+        domain_id: props.data?.domain.id,
         // @ts-ignore
         config: props.data.config,
     }),
     validationSchema: EditCostFormValidationSchema,
-    handleSubmit: async (values) => {
-        let res = await CallApi().post('/configs',values)
-        toast.success(res.data.message, {
-            position: "bottom-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
+    handleSubmit: async (values,{props}) => {
+        try {
+            let res = await CallApi().put(`/configs/${props.data.id}`,values);
+            toast.success(".با موفقیت ویرایش شد", {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            props.navigate('/')
+        }catch (err){
+        }
+
     }
 })((formProps:FormikProps<any>)=>InnerEditCostForm(formProps))
 

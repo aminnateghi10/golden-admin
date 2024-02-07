@@ -12,8 +12,8 @@ interface LoginFormProps {
 }
 
 let loginFormValidationSchema = yup.object().shape({
-    username: yup.string().required(),
-    password: yup.string().required()
+    username: yup.string().required('وارد کردن نام کاربری الزامی است.'),
+    password: yup.string().required('وارد کردن گذرواژه الزامی است.')
 });
 
 const LoginForm = withFormik<LoginFormProps, LoginFormValuesInterface>({

@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
 
 import EditCostForm from "../components/form/costs/editCostForm";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import callApi from "../helpers/callApi";
 
 const EditCost = () => {
     let proms = useParams();
+    const navigate = useNavigate();
     useEffect(()=>{
         callApi().get(`/configs/${proms.id}`).then(res => setData(res.data.result))
     },[])
@@ -23,7 +24,7 @@ const EditCost = () => {
                                 <div className="block-content">
                                     <div className="row">
                                         <div className="col-md-12">
-                                            <EditCostForm data={data}/>
+                                            <EditCostForm navigate={navigate} data={data}/>
                                         </div>
                                     </div>
                                 </div>

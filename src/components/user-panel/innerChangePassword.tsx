@@ -7,15 +7,15 @@ const InnerChangePassword = () => {
         <Form>
             <div className="row">
                 <div className="form-group col-6">
-                    <Input name='prev_password' type='password' inputClassName='form-control valid'
+                    <Input name='prev_password' errorClassName="text-danger" type='password' inputClassName='form-control valid'
                            label='گذرواژه قبلی'/>
                 </div>
                 <div className="form-group col-6">
-                    <Input name='password' type='password' inputClassName='form-control valid'
+                    <Input name='password' errorClassName="text-danger" type='password' inputClassName='form-control valid'
                            label='گذرواژه جدید'/>
                 </div>
                 <div className="form-group col-6">
-                    <Input name='password_confirmation' type='password' inputClassName='form-control valid'
+                    <Input name='password_confirmation' type='password' errorClassName="text-danger" inputClassName='form-control valid'
                            label='تکرار گذرواژه جدید'/>
                 </div>
             </div>

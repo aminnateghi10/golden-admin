@@ -36,8 +36,8 @@ const InnerEditCostForm = (formProps : FormikProps<any>) => {
             </div>
             <div className="form-group row">
                 <div className="col-12 text-center">
-                    <button type="submit" className="btn btn-alt-success">
-                        <i className="fa fa-plus mr-5" /> افزودن
+                    <button type="submit" className="btn btn-alt-warning">
+                        <i className="fa fa-plus mr-5" /> ویرایش
                     </button>
                 </div>
             </div>
