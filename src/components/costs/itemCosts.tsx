@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {QRCodeSVG} from 'qrcode.react';
 import {CostsInterface} from "../contracts/userInterface";
 import {Link, useLocation} from "react-router-dom";
 import callApi from "../../helpers/callApi";
@@ -20,8 +21,10 @@ const ItemCosts = ({data}: PropsInterface) => {
     const user = useSelector((store: RootState) => store.user.user);
 
     const [show, setShow] = useState<boolean>(false);
+    const [QRCode, setQRCode] = useState<boolean>(false);
 
     const handleClose = () => setShow(false);
+    const handleCloseQRCode = () => setQRCode(false);
     const handleShow = () => setShow(true);
 
     let deleteHandler = async () => {
@@ -81,8 +84,10 @@ const ItemCosts = ({data}: PropsInterface) => {
                     {
                         // @ts-ignore
                         user?.is_admin &&
-                            <button onClick={handleShow} className="btn btn-alt-danger cost-delete-btn">حذف</button>
+                        <button onClick={handleShow} className="btn btn-alt-danger ml-1 cost-delete-btn">حذف</button>
                     }
+                    <button onClick={() => setQRCode(true)} className="btn btn-alt-secondary cost-delete-btn">QR Code
+                    </button>
                 </td>
             </tr>
 
@@ -101,6 +106,29 @@ const ItemCosts = ({data}: PropsInterface) => {
                     </Button>
                 </Modal.Footer>
             </Modal>
+
+            {
+                QRCode &&
+                <Modal className="modal" style={{width: '400px', right: '42vw',textAlign:'center'}}
+                       show={QRCode}
+                       onHide={handleCloseQRCode}>
+                    <Modal.Header>
+                        <Modal.Title>لینک سابسکرپشن</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        {/*@ts-ignore*/}
+                        <QRCodeSVG value={data?.url}/>
+                    </Modal.Body>
+                    {/*@ts-ignore*/}
+                    <Modal.Header>
+                        <Modal.Title>لینک کانفیگ</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        {/*@ts-ignore*/}
+                        <QRCodeSVG value={data?.config}/>
+                    </Modal.Body>
+                </Modal>
+            }
         </>
     );
 };
