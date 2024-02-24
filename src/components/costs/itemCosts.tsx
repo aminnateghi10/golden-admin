@@ -78,7 +78,7 @@ const ItemCosts = ({data}: PropsInterface) => {
                 {/*@ts-ignore*/}
                 <td className="text-nowrap">{data.token}</td>
                 <td className="text-center text-nowrap">
-                    <button onClick={copyHandler} className="btn btn-alt-success cost-delete-btn ml-1">کپی آدرس کانفیگ
+                    <button onClick={copyHandler} className="btn btn-alt-success cost-delete-btn ml-1">کپی آدرس سابسکریپشن
                     </button>
                     <Link to={`/costs/${data.id}`} className="btn btn-alt-warning ml-1">ویرایش</Link>
                     {
@@ -109,23 +109,23 @@ const ItemCosts = ({data}: PropsInterface) => {
 
             {
                 QRCode &&
-                <Modal className="modal" style={{width: '400px', right: '42vw',textAlign:'center'}}
+                <Modal className="modal" style={{textAlign:'center'}}
                        show={QRCode}
                        onHide={handleCloseQRCode}>
-                    <Modal.Header>
-                        <Modal.Title>لینک سابسکرپشن</Modal.Title>
+                    <Modal.Header className="justify-content-center pb-0">
+                        <h5>لینک سابسکریپشن</h5>
                     </Modal.Header>
                     <Modal.Body>
                         {/*@ts-ignore*/}
                         <QRCodeSVG value={data?.url}/>
                     </Modal.Body>
                     {/*@ts-ignore*/}
-                    <Modal.Header>
-                        <Modal.Title>لینک کانفیگ</Modal.Title>
+                    <Modal.Header className="justify-content-center pb-0">
+                        <h5>لینک کانفیگ</h5>
                     </Modal.Header>
                     <Modal.Body>
                         {/*@ts-ignore*/}
-                        <QRCodeSVG value={data?.config}/>
+                        <QRCodeSVG className="w-100" value={data?.config}/>
                     </Modal.Body>
                 </Modal>
             }
