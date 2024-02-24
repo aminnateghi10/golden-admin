@@ -61,5 +61,6 @@ yarn-error.log
 .metro-health-check*
 
 # build
+
 build.zip
-build
+*build
