@@ -49,7 +49,7 @@ const ListCosts = () => {
                         <div className="block-header block-header-default border-b justify-content-between">
                             <h3 className="block-title">لیست کاربران</h3>
                             <div>
-                                <input className="px-1" onChange={(e) => searchData(e.target.value)} placeholder="جستجوی کاربر" />
+                                <input className="px-1 form-control" onChange={(e) => searchData(e.target.value)} placeholder="جستجوی کاربر" />
                             </div>
                         </div>
                         <div className="block-content">

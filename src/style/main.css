@@ -56,3 +56,25 @@
     border-radius: 50%;
     height: 50px;
 }
+
+.w-max-content {
+    width: max-content;
+}
+
+.modal-dialog {
+    max-width: 500px;
+    margin: 1.75rem auto;
+}
+
+.font-system-ui {
+    font-family: system-ui;
+}
+
+.Toastify__toast-body {
+    font-family: "Vazir", sans-serif !important;
+}
+
+.Toastify__toast-container--bottom-right {
+    right: 0;
+    padding: 10px;
+}

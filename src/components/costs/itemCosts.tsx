@@ -48,10 +48,10 @@ const ItemCosts = ({data}: PropsInterface) => {
         }
     }
 
-    const copyHandler = () => {
+    const copyHandler = (url:string) => {
         // @ts-ignore
-        navigator.clipboard.writeText(data.url);
-        toast.success("کپی با موفقیت انجام شد.", {
+        navigator.clipboard.writeText(url);
+        toast.success(".کپی با موفقیت انجام شد", {
             position: "bottom-right",
             autoClose: 2000,
             hideProgressBar: false,
@@ -70,7 +70,7 @@ const ItemCosts = ({data}: PropsInterface) => {
                 </td>
                 <td>{data.id}</td>
                 {/*@ts-ignore*/}
-                <td>{data.name}</td>
+                <td style={{fontFamily: "system-ui"}}>{data.name}</td>
                 {/*@ts-ignore*/}
                 {user?.is_admin && <td className="text-nowrap">{data.user.name}</td>}
 
@@ -78,8 +78,6 @@ const ItemCosts = ({data}: PropsInterface) => {
                 {/*@ts-ignore*/}
                 <td className="text-nowrap">{data.token}</td>
                 <td className="text-center text-nowrap">
-                    <button onClick={copyHandler} className="btn btn-alt-success cost-delete-btn ml-1">کپی آدرس سابسکریپشن
-                    </button>
                     <Link to={`/costs/${data.id}`} className="btn btn-alt-warning ml-1">ویرایش</Link>
                     {
                         // @ts-ignore
@@ -109,23 +107,21 @@ const ItemCosts = ({data}: PropsInterface) => {
 
             {
                 QRCode &&
-                <Modal className="modal" style={{textAlign:'center'}}
+                <Modal className="modal rounded" style={{textAlign: 'center'}} contentClassName="rounded" dialogClassName="w-max-content"
                        show={QRCode}
                        onHide={handleCloseQRCode}>
-                    <Modal.Header className="justify-content-center pb-0">
-                        <h5>لینک سابسکریپشن</h5>
-                    </Modal.Header>
-                    <Modal.Body>
+                    <h5 className="justify-content-center pt-3 my-0">Subscription</h5>
+                    {/*@ts-ignore*/}
+                    <Modal.Body onClick={()=>copyHandler(data?.url)}>
                         {/*@ts-ignore*/}
                         <QRCodeSVG value={data?.url}/>
                     </Modal.Body>
                     {/*@ts-ignore*/}
-                    <Modal.Header className="justify-content-center pb-0">
-                        <h5>لینک کانفیگ</h5>
-                    </Modal.Header>
-                    <Modal.Body>
+                    <h5 className="justify-content-center py-0 my-0">کاربر</h5>
+                    {/*@ts-ignore*/}
+                    <Modal.Body onClick={()=>copyHandler(data?.config)}>
                         {/*@ts-ignore*/}
-                        <QRCodeSVG className="w-100" value={data?.config}/>
+                        <QRCodeSVG value={data?.config}/>
                     </Modal.Body>
                 </Modal>
             }

@@ -21,7 +21,7 @@ const InnerCreateCostForm = (formProps : FormikProps<any>) => {
             <input type="hidden" name="_token" />
             <div className="row">
                 <div className="form-group col-6">
-                    <Input name='name' label='نام کاربر' errorClassName="text-danger" inputClassName='form-control js-autocomplete'/>
+                    <Input name='name' label='نام کاربر' errorClassName="text-danger" inputClassName='form-control font-system-ui js-autocomplete'/>
                 </div>
                 <div className="form-group col-6">
                     <label htmlFor="domain_id">آدرس دامین</label>
